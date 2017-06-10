@@ -1,15 +1,15 @@
-all: basins.pdf
+paper = hierarchy_cosmology
 
-basins.pdf: *.tex Narrative/*.tex
-	pdflatex -interaction=nonstopmode basins.tex
-	bibtex basins
-	pdflatex -interaction=nonstopmode basins.tex
-	pdflatex -interaction=nonstopmode basins.tex
+hierarchy_cosmology.pdf: *.tex Narrative/*.tex
+	pdflatex -interaction=nonstopmode $(paper)
+	bibtex $(paper) 
+	pdflatex -interaction=nonstopmode $(paper) 
+	pdflatex -interaction=nonstopmode $(paper) 
 
 .PHONY:
 clean:
-	rm -f *aux *toc *bbl *log *out *blg
+	rm -f *dvi *aux *toc *bbl *log *out *blg
 
 .PHONY:
 cleanall: clean
-	rm -f basins.pdf
+	rm -f $(paper).pdf

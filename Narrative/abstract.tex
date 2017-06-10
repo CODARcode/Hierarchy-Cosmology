@@ -1,41 +1,41 @@
 \begin{abstract}
-Lossy compression of local minimizers to a numerical optimization problem can result 
-in significant savings by utilizing extra knowledge available for numerical 
-optimization problems.  In particular, we tradeoff storage for computation.
-If we can compute the basin of local convergence for a particular numerical
-method and approximate local minimizer, then as long as the iterate we store 
-remains within that basin, we can recover the approximate local minimizer.  
-Moreover, we may be able to bound the computational cost of the recovery by 
-establishing a bound on the number of iterations of the local method
-required.  Our initial investigation will focus on unconstrained and
-bound-constrained numerical optimization methods and will start with
-a literature search on perturbation analysis and error bounds.
+Many scientific data analysis problems require discovering latent/intrinsic
+structure within the data, grouping the data into corresponding clusters, and
+then performing operations on the respective groups. To address the curse of
+dimensionality, we are developing hierarchical methods that exploit the nested
+structure embedded in many natural phenomena and their mathematical
+representations, such as those arising from spatial/temporal discretization,
+network structure, and parameter space characteristics.   By exploiting these
+hierarchies, we intend to develop a more scalable approach to a broad range of
+analysis tasks.
 
-We expect that these methods will be beneficial to the Exaalt project, which needs 
-to store all the local minimizers computed in a long molecular dynamics simulation.  
-The number of local minimizers is exponential in the number of atoms and they are 
-targeting problems with 2,000 atoms and each local minimizer needs to store 
-10,000 values.  While each individual minimizer is a small number values, 
-we need to conserve space as there is an enormous number of them.  Beyond 
-storing the values, they are interested in clusters of local minimizers and 
-the transition between such clusters; transitions between clusters of 
-clusters may be of interest as well.  Additional analysis and methods
-to compute transition states and minimal energy pathways may also be
-of interest.  Our initial investigations will use simple systems
-and/or data previously generated and stored.
+A motivating example that we will target initially is the halo-center-finding
+problem arising in computational cosmology. The goal is to find a particle
+within a halo that provides the lowest potential, where the potential for a
+given particle requires a global calculation over all particles (e.g.,
+proportional to the sum of inverse interparticle distances). Given $n$
+particles within a halo, the standard brute force algorithm will end up with
+$O(n^2)$ complexity. A typical halo has 20 million particles and thus such a
+global operation comes with considerable expense. Our approach is to design a
+hierarchical clustering scheme. Instead of calculating correlations between
+every pair of particles, we calculate the correlations of centers provided by
+every pair of sub clusters that can at least reduce the computation cost to
+$O(n\log{n})$. We will test our algorithm on benchmark datasets provided by the
+HACC ECP application project. Our hypothesis is that in many cases, the
+hierarchical algorithm will perform significantly better than its worst-case
+complexity guarantee.
 
-Provided that we can identify the mathematics required to compute the 
-basins of local convergence for the local numerical optimization methods 
-employed by the Exaalt team, we will produce prototype implementations
-and study their scalability and work toward reducing the computational
-costs as much as possible, perhaps using hierarchical methods.  We will 
-then evaluate the tradeoffs between computation of the basins, storage 
-of the results, and recomputation of the local minimizers.  We will 
-also evaluate the downstream cluster analysis to determine if we
-need to recompute the local minimizers or if the methods are
-stable when using the approximate local minimizers.  If a good 
-tradeoff can be made and the methods are scalable, we will move 
-the project into the next step of developing an online capability.
+We will also benchmark the hierarchical approach on material science analysis
+and compression problems encountered by the EXAALT application project. The
+hierarchical nature of these algorithms means that we can often find surrogate
+models with less complexity, and approximate solutions (by operating at the
+coarsest levels of the hierarchy whenever possible) in far less time than
+single-level traditional approaches. As such, we will perform a full tradeoff
+study using emerging platforms to quantify the tradeoffs between accuracy and
+performance on these test applications, and provide guidance on its suitability
+for real-time online analysis. 
+
+
 
 \end{abstract}
 
