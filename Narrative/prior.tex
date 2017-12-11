@@ -77,12 +77,15 @@ We now show how the algorithm works on a relatively challenging 2D example in Fi
 
 Next, we run our algorithm on 500 simulated 3D dark matter halos. In Figure \ref{fig:timing}, we can see as the number of particles increases, the time elapsed for our proposed algorithm reduces about 20 times less the time elapsed for the brute force method. Meanwhile, Figure \ref{fig:error} shows the accuracy of our proposed algorithm compared to the brute force, the biggest error is on the order of $10^{-3}$ which in reality, if two particles have the distance shorter than $10^{-3}$, we do not distinguish these two particles. Therefore, the accuracy is achieved through our proposed algorithm as well.  
 
-\begin{figure}[h]
-\subfloat[ \label{fig:1st}]{
-\includegraphics[scale=0.5]{2d_1}}
-\hfill
-\subfloat[ \label{fig:2nd}]{
-\includegraphics[scale=0.5]{2d_2}}
+\begin{figure}[ht]
+\begin{subfigure}[b]{0.5\linewidth}
+\includegraphics[width=\textwidth]{2d_1}
+\caption{\label{fig:1st}}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\linewidth}
+\includegraphics[width=\textwidth]{2d_2}
+\caption{\label{fig:2nd}}
+\end{subfigure}
 \caption{Demonstrate the recursive process}
 \label{illu_level}
 \end{figure}
@@ -94,12 +97,15 @@ Next, we run our algorithm on 500 simulated 3D dark matter halos. In Figure \ref
     \label{2d_result}
 \end{figure}
 
-\begin{figure}[h]
-\subfloat[ \label{fig:timing}]{
-\includegraphics[scale=0.5]{3d_timing}}
-\hfill
-\subfloat[ \label{fig:error}]{
-\includegraphics[scale=0.5]{3d_error}}
+\begin{figure}[ht]
+\begin{subfigure}[b]{0.5\linewidth}
+\includegraphics[scale=0.5]{3d_timing} 
+\caption{\label{fig:timing}}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\linewidth}
+\includegraphics[scale=0.5]{3d_error}
+\caption{\label{fig:error}}
+\end{subfigure}
 \caption{3D result}
 \label{3dresult}
 \end{figure}
